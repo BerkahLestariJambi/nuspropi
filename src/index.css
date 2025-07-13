@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scroll Hide (untuk elemen yang auto-scroll horizontal) */
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+.scroll-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Tulisan vertikal (untuk label bilik/nomor) */
+.writing-vertical {
+  writing-mode: horizontal-rl;
+  text-orientation: mixed;
+}
+
+/* Animasi Slide Masuk Kiri */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.animate-slide-in {
+  animation: slideInLeft 0.25s ease-out forwards;
+}
+
+/* Animasi Slide Masuk Kanan */
+@keyframes slideInRight {
+  from {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.animate-slide-in-right {
+  animation: slideInRight 0.25s ease-out forwards;
+}
+
+/* Marquee Berjalan (auto slider text) */
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
+.marquee-wrapper:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Blink Text */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.animate-blink {
+  animation: blink 1s ease-in-out infinite;
+}
+
+/* Logo Spin Lambat */
+@keyframes spin-slow-30s {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.logo-spin {
+  width: 228px;
+  height: 228px;
+  animation: spin-slow-30s 30s linear infinite;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+}
+
+/* Swiper Slider Styling */
+.swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tombol Panah Carousel */
+.swiper-button-prev,
+.swiper-button-next {
+  z-index: 20;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Pagination Styling */
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.swiper-pagination-bullet-active {
+  background-color: white;
+}
